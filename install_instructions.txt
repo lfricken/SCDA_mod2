@@ -1,0 +1,39 @@
+
+
+
+
+
+Install SCDA like normal.
+Run the patches in order.
+
+
+After those have installed, go to your SCDA installation:
+C:\Program Files (x86)\Steam\steamapps\common\Splinter Cell - Double Agent
+
+Rename the SCDA-Online folder to SCDA-Online-old
+
+Create a new empty folder called SCDA-Online
+
+Drag the files from the download Enhanced SCDA Online v2.0.7z into that folder so that this path exists: SCDA-Online\System
+[10:19 AM]Leonidas: Launch ZeroTier and join a new network (bottom right control panel). Network id is: 1d71939404b55abb
+
+Remind Leon to authorize you afterward. He needs to login with his Google account.
+
+Then
+* Press windows key
+* Type Network Status
+* Click Change adapter options
+* Right click > Properties on ZeroTier network
+* IPv4 Properties
+* (Verify you have an IP Address already entered, if not make sure you joined to the network)
+* Advanced
+* Change Automatic metric to 1
+
+Finally, update with the latest mod version which you can find at the bottom of this chat
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+To start the editor, you need to run a command prompt and do launch arguments like this (this is assuming the Editor.exe is in your system folder):
+EditMap ..\Packages\01\MapsPC\ind01_VS.sds
+EditMap ..\Packages\02\MapsPC\ind02_VS.sds
+EditMap ..\Packages\03\MapsPC\ind03_VS.sds
+EditMap ..\Packages\04\MapsPC\frq01_VS.sds
+EditMap ..\Packages\05\MapsPC\frq02_VS.sds
+EditMap ..\Packages\06\MapsPC\shp_VS.sds
+EditMap ..\Packages\07\MapsPC\shp02_VS.sds
+EditMap ..\Packages\08\MapsPC\ind04_VS.sds
+Note: this editor was intended to be used on the original game and its file paths not enhanced, i moved some of the stuff around. i typically edited maps on the vanilla game then saved the map file.
+
+These are the Editor keybinds that get applied in-game: 
+T - Toggle Editor
+W - Move Forward
+S - Move Backward
+E - Move Up
+Q - Move Down
+A - Move Left
+D - Move Right
+. - Increase Movement Speed
+, - Decrease Movement Speed
++ = Increase Selection Radius
+- = Decrease Selection Radius
+F - Select Range
+M - Move Selection
+N - Select Next Modified Object
+P - Select Previous Modified Object
+R = Reset Selected Modified Object
+Y = Apply Selection
