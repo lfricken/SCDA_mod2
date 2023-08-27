@@ -1,4 +1,5 @@
 To start the editor, you need to run a command prompt and do launch arguments like this (this is assuming the Editor.exe is in your system folder):
+first launch SplinterCellEditor
 EditMap ..\Packages\01\MapsPC\ind01_VS.sds
 EditMap ..\Packages\02\MapsPC\ind02_VS.sds
 EditMap ..\Packages\03\MapsPC\ind03_VS.sds

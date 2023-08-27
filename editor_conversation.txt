@@ -1,0 +1,196 @@
+No conversation exists before this.
+
+Enhanced SCDA maps were edited using an "Editor" that a friend helped with as a side project. It is barely a map editor but was used for very slight balance tweaking. You can not add any objects into your map, just move them around. Even then, if you have Unreal Engine 2 experience, levels have portals/zoning, most objects must remain in their same zone or you'll run into issues such as it not drawing the object at all or lighting bugs.
+
+The "editor" is literally just a small command window that opens with the game, and you can think of it is a very primitive Halo 3 forge. You can noclip around as a spy, then there's a "scan" keybind and it scans for objects around the spy to select, then you can move your highlighted selection by pressing the "move" keybind with your spy in the position you want the object to be in. It is a huge pain in the ass, and it took many hours to do the simplest of things, so I never really bothered making any of the stuff public.
+[5:16 PM]Joshhhuaaa: I'm not gonna refuse to give it to the public, I'm all for anyone interested in modding these games, but honestly I can't be bothered to explain how to use it all atm, since i'd have to relearn it as well lol
+Attachment file type: archive
+SCDAEditor.rar
+68.92 KB
+[5:19 PM]Joshhhuaaa: To start the editor, you need to run a command prompt and do launch arguments like this (this is assuming the Editor.exe is in your system folder):
+EditMap ..\Packages\01\MapsPC\ind01_VS.sds
+EditMap ..\Packages\02\MapsPC\ind02_VS.sds
+EditMap ..\Packages\03\MapsPC\ind03_VS.sds
+EditMap ..\Packages\04\MapsPC\frq01_VS.sds
+EditMap ..\Packages\05\MapsPC\frq02_VS.sds
+EditMap ..\Packages\06\MapsPC\shp_VS.sds
+EditMap ..\Packages\07\MapsPC\shp02_VS.sds
+EditMap ..\Packages\08\MapsPC\ind04_VS.sds
+Note: this editor was intended to be used on the original game and its file paths not enhanced, i moved some of the stuff around. i typically edited maps on the vanilla game then saved the map file.
+
+These are the Editor keybinds that get applied in-game: 
+T - Toggle Editor
+W - Move Forward
+S - Move Backward
+E - Move Up
+Q - Move Down
+A - Move Left
+D - Move Right
+. - Increase Movement Speed
+, - Decrease Movement Speed
++ = Increase Selection Radius
+- = Decrease Selection Radius
+F - Select Range
+M - Move Selection
+N - Select Next Modified Object
+P - Select Previous Modified Object
+R = Reset Selected Modified Object
+Y = Apply Selection
+[5:19 PM]Joshhhuaaa: Once you do that command, you just open the game, start the level that you chose on the launch argument, and then play with those keybinds below
+[5:20 PM]Joshhhuaaa: So T starts "editing" mode, and then once you've made some edits, you press Y (apply selection) once applied. A new map file will be generated in your system folder.
+[5:20 PM]Joshhhuaaa: Also to make it a bigger pain sometimes you can't see changes until you reboot the game with the new map file that has been generated.
+[5:29 PM]Chalant: WOW Thank you so much.
+Did you edit the other stuff, such as respawn time and spy/merc abilities via some other method?
+[5:31 PM]Joshhhuaaa: they're all lin the System\PC\ directory in .u files (UnrealScript) its very hard to edit them tho
+[5:31 PM]Joshhhuaaa: well its basic hex editing but the files aren't easy to read
+[5:32 PM]Chalant: I initially tried that but wasn't able to figure out where the values were. Was there any technique for finding them?
+[5:33 PM]Joshhhuaaa: Tons of trial and error honestly and guessing
+[5:33 PM]Joshhhuaaa: All those changes took like 2 years to eventually get
+[5:34 PM]Chalant: Well, at least I can diff your files with the originals to find the ones you found...
+[5:34 PM]Joshhhuaaa: like if a game session is 20 minutes i just looked for integers of 1200 etc
+[5:34 PM]Joshhhuaaa: thats about it
+[5:34 PM]Chalant: Sounds good. Thanks again!
+[6:40 PM]Chalant: Have you attempted unreal engine script decompilers?
+[6:41 PM]Joshhhuaaa: I’ve tried like everything back then, none of those things do much for SC I bet
+[6:42 PM]Joshhhuaaa: SC1 is your best bet, but CT and DA are so modified engines from Ubisoft I feel like most tools designed for UE won’t work
+[6:44 PM]Joshhhuaaa: Sadly I do know a person with very nice stuff for CT/DA single player engines but he’s been laying low and refusing to really hand anything out. Hope one day we can have a leak, I guess it’s good to know someone outside ubi has it but also frustrating
+[3:15 PM]Chalant: Sorry to bug you again. Did you end up recording what each of these hex changes to the unreal scripts did?
+[3:17 PM]Joshhhuaaa: Well I got patch notes if you mean that, I don’t remember where exactly every change is in the files
+[3:20 PM]Chalant: I saw those, I just meant the files. I'll be able to figure it out though. I basically just wanted to enable the merc 3rd range tracker. I assume one of the variables indicated the distance of it, and was set to 0?
+[3:22 PM]Joshhhuaaa: Oh honestly going from memory I dont think I ever cracked the sensor in a natural way in unrealscript
+[3:22 PM]Joshhhuaaa: It’s pretty ghetto but we deleted the HUD texture from being used and it’s sound effect so it’s technically in the code but players can’t use it
+[3:23 PM]Chalant: Oh lol. Do you know where that texture used to be?
+[3:23 PM]Chalant: I could replace it with my own version potentially to get the same effect.
+[3:24 PM]Joshhhuaaa: Not really I probably should’ve documented the shit better for the games
+[3:24 PM]Joshhhuaaa: If you just run a stock DA with my .u files, you’ll have it tho
+[3:24 PM]Chalant: I'd want to replace it though. I can always diff folders with git I guess 👍 
+[3:24 PM]Joshhhuaaa: I also removed the mercs visor
+[3:24 PM]Joshhhuaaa: If you noticed
+[3:25 PM]Joshhhuaaa: The hud borders
+[3:25 PM]Joshhhuaaa: That was same texture related mod
+[3:25 PM]Chalant: Oh interesting. What did that do?
+[3:25 PM]Joshhhuaaa: Well it has no real gameplay purpose other than slightly hinder the vision of the merc so we got rid of it
+[3:26 PM]Joshhhuaaa: It was just for detail from the devs
+[3:26 PM]Joshhhuaaa: I would’ve liked to remove the light adaptation shit but could never find it
+[3:27 PM]Joshhhuaaa: Where your eyes adapt slowly from flash bangs and sunlight then going into a building, I just find it annoying
+[3:28 PM]Joshhhuaaa: Oh actually if you run my .u files in a stock DA it’ll crash I think… just steal the textures folder and replace it in enhanced
+[3:28 PM]Joshhhuaaa: In Packages\  _common\textures 
+[3:29 PM]Joshhhuaaa: It’s one of the texture files
+[8:53 PM]Chalant: Did you say you deleted the proximity sounds somehow?
+[11:22 AM]Chalant: I did figure it out eventually. Did you increase the Jammer Gadget duration at one point?
+[11:38 AM]Joshhhuaaa: Not really since I moved the presence sensor out anyways so the gadget was basically removed
+[11:39 AM]Chalant: Yeah but I readded it and I see it lasts 45 seconds (which I like) but I thought it used to be 15 seconds.
+[11:39 AM]Chalant: So I was curious if i was just wrong.
+[11:39 AM]Joshhhuaaa: I thought it was 20 seconds
+[11:40 AM]Joshhhuaaa: In very early enhanced updates I might've touched its duration since the presence sensor was still active, but I thought I would've reverted its duration after disabling it
+[11:41 AM]Joshhhuaaa: SC4Inventory.u would be the file to experiment with most gadgets but I think the jammer might've been weird to edit its duration and you used something like sc4ingredients too
+[11:41 AM]Chalant: I actually wanted to increase duration to 1 minute but reduce the number of them. I know how to do the latter, but not the duration. I diffed a bunch of files but didn't figure it out. It can't be ingredients because I see no diff in that file. I probably just need to mess around with Inventory.u more I guess...
+[11:42 AM]Joshhhuaaa: It should just be a integer or float
+[11:42 AM]Joshhhuaaa: of 20 changed to 45
+[11:42 AM]Chalant: Mainly wanted to know if you had changed it at all, since if you hadn't, me focusing on diffs would be a waste of time.
+[11:42 AM]Joshhhuaaa: i don't recall if it was changed in the v2.0 since its a disabled gadget
+[11:44 AM]Joshhhuaaa: We did 5 jammers of 45 seconds
+[11:44 AM]Joshhhuaaa: in v1.3
+[11:44 AM]Joshhhuaaa: i see
+Image
+[11:44 AM]Joshhhuaaa: so 20 is default
+[11:44 AM]Chalant: Can I get the link to the previous versions?
+[11:44 AM]Joshhhuaaa: hang on have to get the external drive for it
+[11:44 AM]Joshhhuaaa: ill just send the .u
+[11:45 AM]Chalant: Oh, thank you very much! If you still enjoy playing the game we'll have to play one.
+[11:47 AM]Joshhhuaaa: Enhanced v1.3 version
+Attachment file type: unknown
+SC4Inventory.u
+104.06 KB
+[11:48 AM]Joshhhuaaa: Some of the .u files from v1.3 will be incompatible like Engine.u/SC4Specific.u, dropping them into your game will crash
+[11:48 AM]Joshhhuaaa: You'll probably be fine with inventory
+[11:49 AM]Chalant: Yeah, I just planned to figure out which value to edit
+[11:49 AM]Joshhhuaaa: Each version is kind of incompatible with each ohter intentionally
+[11:49 AM]Chalant: And thank you again. I really appreciate it.
+[11:49 AM]Joshhhuaaa: to create a version mismatch
+[11:49 AM]Joshhhuaaa: so v1.3 people can't join v1.4 and so on
+[11:50 AM]Joshhhuaaa: Wasn't really an issue when we had servers but LAN can't really determine game version mismatches on minor edits in files
+[11:51 AM]Joshhhuaaa: I never really looked into how DA's files work with hosts and client, but luckily on CT some are controlled by host which is a good security measure
+[11:51 AM]Joshhhuaaa: like damage values are shared with everyone, so no one can really cheat on CT with tweaked values since the host's damage values are given to all 4 players lol
+[11:55 AM]Chalant: Yep, that was it. I've been writting down memory locations in a text file in case you wanted that.
+[11:55 AM]Joshhhuaaa: i guess its not bad idea but im probably done v2.0 is likely final for DA
+[11:57 AM]Joshhhuaaa: CT's Enhanced is more of bug fixes and some small improvements since CT's default game actually plays well. DA had a lot of experimenting and I think Enhanced DA plays miles better than the original game
+[11:58 AM]Joshhhuaaa: CT's in a pretty good state it is now, it's mostly bugs / small improvements i would want to make but can never figure it out
+[11:58 AM]Joshhhuaaa: Removing the horrible negative mouse acceleration, allow for higher mouse polling rate like 1000Hz. And removing aim assist for Spy jumping / Spy drawing weapon / Merc charging. It's like mostly mouse stuff lol
+[12:00 PM]Chalant: Yeah that's fair.
+For the spy jammer time, I still can't figure this out:
+3442 is 45 seconds
+a041 is 20 seconds
+
+what? even reversing byte order, I still don't see how that works.
+[12:01 PM]Joshhhuaaa: are you on like hxd
+[12:01 PM]Chalant: hexedit
+[12:01 PM]Joshhhuaaa: could you like just show me the entire hex  row in a screenshot
+[12:02 PM]Chalant:
+Image
+[12:02 PM]Joshhhuaaa: i don't think this is like the correct view or whatever
+[12:03 PM]Joshhhuaaa: not too smart with hex editing but the hxd default view doesn't really look like that
+[12:03 PM]Chalant:
+Image
+[12:04 PM]Joshhhuaaa: ah i see it
+[12:04 PM]Joshhhuaaa: so
+[12:04 PM]Joshhhuaaa: 24 00 00 A0 41 = 20 seconds
+[12:04 PM]Joshhhuaaa: you change that bold area with a different float
+[12:05 PM]Joshhhuaaa: 60 seconds would be = 00 00 70 42
+[12:05 PM]Chalant: Wait what?
+Image
+[12:05 PM]Chalant: oh crap
+[12:06 PM]Chalant: big endian
+[12:06 PM]Chalant: I see now, thank you
+[12:06 PM]Joshhhuaaa: i didn't use any of these weird converts lol
+[12:07 PM]Chalant: hxd does it for you?
+[12:07 PM]Joshhhuaaa: so the highlighed part is 45 seconds
+Image
+[12:07 PM]Joshhhuaaa: so you see how i highlighted the 00 00 34 42 in hxd
+[12:07 PM]Joshhhuaaa: in HxD, there's a data inspector tab
+Image
+[12:07 PM]Joshhhuaaa: it just tells me 45
+[12:07 PM]Joshhhuaaa: i change it to 60 and it does the math for me in hex
+[12:08 PM]Chalant: Yeah, apparently my tools are garbage. Will get HxD. Thank you for the billionth time 🙂
+[12:08 PM]Joshhhuaaa: there's like a data inspector thing on the right hand side when you open a file
+Image
+[12:09 PM]Joshhhuaaa: Also you can press Ctrl+F to find on HxD, go to the floating point number tab, and typing "45" will bring you to the right results
+Image
+[12:09 PM]Chalant: It's like I just advanced technology wise by 30 years.
+[12:09 PM]Joshhhuaaa: i always search in float32, 4bytes
+[12:09 PM]Joshhhuaaa: never had to change it
+[12:10 PM]Joshhhuaaa: also hxd does have data comparison tools with Ctrl+K
+[12:10 PM]Joshhhuaaa: if you want to compare 2 .u files
+[12:10 PM]Joshhhuaaa: and F6 goes to next difference
+[12:10 PM]Chalant: 40 years now
+[12:11 PM]Joshhhuaaa: might not be the best tool but yea
+
+It's been a while!
+
+Do you know if the source code to that Splinter Cell map editor exists anywhere? I tried to use it and it just launches the game to the multiplayer main menu. I have it in the System folder and just ran 
+EditMap ..\Packages\01\MapsPC\ind01_VS.sds 
+[8:56 PM]Chalant:
+Image
+[12:33 AM]Joshhhuaaa: I know the person who made it but I don't personally have the source code for it. I could maybe ask him but not sure if he's kept it or not either.
+
+And what you said is normal. You start the editor in commandline, then insert a command like you did:
+EditMap ..\Packages\01\MapsPC\ind01_VS.sds
+
+
+The game will open and load you into the main menu, you will then go to LAN > Custom Search > pick the map that you inputted into the command > start game as Spy.
+
+ (Merc is possible but just more restrictive in first person camera editing).
+
+(Picking the wrong map in-game then what you put into the commandline is also possible, there will be no warnings so don't make that mistake, its not that advanced of an editor to correct you.)
+[12:37 AM]Joshhhuaaa: Strangely, when I updated from Windows 10 to 11 once, it broke the Editor scanning objects correctly. (I even downgraded back to Windows 10 and it was still broken PCs are just weird lol) It changed the memory pointers where they were going and retrieving the wrong coordinates. I manually updated it myself but finding the pointers in Cheat Engine and making tweaks to the file "EditorSettings.xml". If your editor possibly isn't working on the first build, you could see if my updated one works.
+Attachment file type: archive
+SCDAEditor.rar
+68.92 KB
+Attachment file type: archive
+SCDAEditor-Updated.7z
+58.79 KB
+[12:38 AM]Joshhhuaaa: If you can get your Spy to fly and your name changes on the top right corner, most likely your editor is working good, mine wasn't doing any of the hotkeys when broken
+[12:43 AM]Joshhhuaaa: Your in-game username can't be less than 10 characters, or you might experience issues because the editor replaces your name to give you information on the HUD. So, using your own name "Chalant" wouldn't be recommended, I usually just had a profile called "SplinterCellEd" that was plenty long just in case, but it can be anything longer like "Chalanttttttttt" would work fine too. Pressing "T" should replace your name with "Flight On" if I remember right, you'll know its working then.
+[6:58 AM]Chalant: Thank you! That was almost certainly it. Though now for some reason it gives me this despite the fact I thought I was using an unmodded SCDA-Online folder. I'm using the Updated editor as well. 
+
+Is that the same error you would get for pointers? If so I guess I'd have to do the same process? 
